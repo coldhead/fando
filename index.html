@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metamorphoses Pronunciations</title>
+    <style>
+        :root {
+            --bg-color: #f2ebd9; /* Nicotine-stained manuscript paper */
+            --text-color: #1a1816; /* Faded carbon-ribbon black */
+            --border-color: #3a3530; /* Heavy typewriter ink grubbiness */
+            --card-bg: #eae2cf; /* Slightly darker paper backing */
+            --accent-color: #8b261e; /* Dried bull-blood editorial ink red */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Hard-boiled, analog typewriter styling */
+            font-family: "Courier New", Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            padding: 30px 15px;
+            background-image: 
+                /* Subtle grit texture */
+                radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0),
+                radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
+            background-size: 8px 8px;
+            background-position: 0 0, 4px 4px;
+        }
+
+        header {
+            text-align: left;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px double var(--border-color);
+            position: relative;
+        }
+
+        /* Redlined title */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            letter-spacing: -1px;
+            transform: rotate(-1deg); /* Skewed typewriter carriage alignment */
+            display: inline-block;
+        }
+
+        p.subtitle {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Cut-up method Search Bar */
+        .search-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 40px;
+            background: var(--bg-color);
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        input[type="search"] {
+            width: 100%;
+            padding: 12px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-color);
+            border: 3px solid var(--border-color);
+            border-radius: 0px; /* Absolutely no soft, rounded corners */
+            background-color: var(--card-bg);
+            outline: none;
+            box-shadow: 4px 4px 0px var(--border-color); /* Brutalist offset shadow */
+            transition: all 0.1s ease;
+        }
+
+        input[type="search"]:focus {
+            background-color: #fffdec;
+            box-shadow: 1px 1px 0px var(--border-color);
+            transform: translate(3px, 3px);
+        }
+
+        /* Letter Sections */
+        .letter-group {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .letter-heading {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* Jagged Grid of Names */
+        .name-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        /* The "Cut-Up" Word Links */
+        .name-link {
+            display: block;
+            padding: 10px 6px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 0px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            word-break: break-all;
+            box-shadow: 2px 2px 0px var(--border-color);
+            transition: transform 0.05s, box-shadow 0.05s;
+        }
+
+        /* Interactive chaotic states */
+        @media (hover: hover) {
+            .name-link:hover {
+                background-color: var(--text-color);
+                color: var(--bg-color); /* High contrast negative flip */
+                transform: translate(-1px, -1px);
+                box-shadow: 3px 3px 0px var(--accent-color);
+            }
+        }
+
+        .name-link:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px var(--border-color);
+        }
+
+        /* Stamped footer note */
+        footer {
+            text-align: left;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }    
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Metamorphoses</h1>
+        <p class="subtitle">Select a proper name to hear its Latin pronunciation</p>
+    </header>
+
+    <div class="search-container">
+        <input 
+            type="search" 
+            id="name-search" 
+            list="names-datalist" 
+            placeholder="Type a name to search (e.g., Daphne)..."
+            autocomplete="off"
+        >
+    </div>
+    <datalist id="names-datalist">
+        <option value="Abas">
+        <option value="Achelous">
+        <option value="Achilles">
+        <option value="Acis">
+        <option value="Acoetes">
+        <option value="Actaeon">
+        <option value="Adonis">
+        <option value="Aeacus">
+        <option value="Aeetes">
+        <option value="Aegeus">
+        <option value="Aeneas">
+        <option value="Aeolus">
+        <option value="Aesculapius">
+        <option value="Aeson">
+        <option value="Agamemnon">
+        <option value="Agauë">
+        <option value="Aglauros">
+        <option value="Ajax">
+        <option value="Alcithoë">
+        <option value="Alcyone">
+        <option value="Althaea">
+        <option value="Ammon">
+        <option value="Amymone">
+        <option value="Anaxarete">
+        <option value="Andromeda">
+        <option value="Anius">
+        <option value="Antigone">
+        <option value="Apollo">
+        <option value="Arachne">
+        <option value="Arcas">
+        <option value="Arethusa">
+        <option value="Argus">
+        <option value="Ariadne">
+        <option value="Ascalaphus">
+        <option value="Asopus">
+        <option value="Astraea">
+        <option value="Athamas">
+        <option value="Atlas">
+        <option value="Aurora">
+        <option value="Autolycus">
+        <option value="Bacchus">
+        <option value="Battus">
+        <option value="Baucis">
+        <option value="Boreas">
+        <option value="Byblis">
+        <option value="Cadmus">
+        <option value="Caeneus">
+        <option value="Calais">
+        <option value="Callisto">
+        <option value="Calydon">
+        <option value="Canens">
+        <option value="Cassiope">
+        <option value="Caunus">
+        <option value="Cebriones">
+        <option value="Cecrops">
+        <option value="Cephalus">
+        <option value="Cephissus">
+        <option value="Ceres">
+        <option value="Ceyx">
+        <option value="Chione">
+        <option value="Chiron">
+        <option value="Cinyras">
+        <option value="Clymene">
+        <option value="Clytie">
+        <option value="Cometes">
+        <option value="Coronis">
+        <option value="Crataeis">
+        <option value="Creusa">
+        <option value="Crotopus">
+        <option value="Cupido">
+        <option value="Cyane">
+        <option value="Cybele">
+        <option value="Cygnus">
+        <option value="Cyllene">
+        <option value="Cyparissus">
+        <option value="Daedalion">
+        <option value="Daedalus">
+        <option value="Danaë">
+        <option value="Daphne">
+        <option value="Deianira">
+        <option value="Deioneus">
+        <option value="Deiphobus">
+        <option value="Deucalion">
+        <option value="Diana">
+        <option value="Dictys">
+        <option value="Diomedes">
+        <option value="Dione">
+        <option value="Dryope">
+        <option value="Echo">
+        <option value="Egeria">
+        <option value="Elpenor">
+        <option value="Enceladus">
+        <option value="Epaphus">
+        <option value="Erechtheus">
+        <option value="Erisichthon">
+        <option value="Eryx">
+        <option value="Eumolpus">
+        <option value="Europa">
+        <option value="Eurus">
+        <option value="Euryalus">
+        <option value="Eurydice">
+        <option value="Eurystheus">
+        <option value="Eurytus">
+        <option value="Faunus">
+        <option value="Galanthis">
+        <option value="Galatea">
+        <option value="Ganymedes">
+        <option value="Geryon">
+        <option value="Glaucus">
+        <option value="Gorgon">
+        <option value="Graecus">
+        <option value="Haemon">
+        <option value="Haemus">
+        <option value="Harmonia">
+        <option value="Hecate">
+        <option value="Hecuba">
+        <option value="Helena">
+        <option value="Heliades">
+        <option value="Helicon">
+        <option value="Hercules">
+        <option value="Hermaphroditus">
+        <option value="Hermes">
+        <option value="Hersilia">
+        <option value="Hesperia">
+        <option value="Hippodamia">
+        <option value="Hippolytus">
+        <option value="Hippomenes">
+        <option value="Hyacinthus">
+        <option value="Hylas">
+        <option value="Hyllus">
+        <option value="Iachus">
+        <option value="Ianthe">
+        <option value="Iapetus">
+        <option value="Iason">
+        <option value="Icarus">
+        <option value="Inachus">
+        <option value="Ino">
+        <option value="Io">
+        <option value="Iole">
+        <option value="Iphigenia">
+        <option value="Iphis">
+        <option value="Iris">
+        <option value="Itys">
+        <option value="Ixion">
+        <option value="Janus">
+        <option value="Jove">
+        <option value="Juno">
+        <option value="Jupiter">
+        <option value="Ladon">
+        <option value="Laelaps">
+        <option value="Laertes">
+        <option value="Latona">
+        <option value="Lelex">
+        <option value="Leucothoë">
+        <option value="Liriope">
+        <option value="Liriope">
+        <option value="Lycabant">
+        <option value="Lycaon">
+        <option value="Lyciscus">
+        <option value="Lyncus">
+        <option value="Macareus">
+        <option value="Machaon">
+        <option value="Maeander">
+        <option value="Maia">
+        <option value="Mars">
+        <option value="Marsyas">
+        <option value="Medea">
+        <option value="Medusa">
+        <option value="Meleager">
+        <option value="Memnon">
+        <option value="Mercurius">
+        <option value="Meryon">
+        <option value="Midas">
+        <option value="Minerva">
+        <option value="Minos">
+        <option value="Minotaurus">
+        <option value="Mnemosyne">
+        <option value="Morpheus">
+        <option value="Mulciber">
+        <option value="Myrrha">
+        <option value="Naiades">
+        <option value="Narcissus">
+        <option value="Neleus">
+        <option value="Nemesis">
+        <option value="Neptunus">
+        <option value="Nessus">
+        <option value="Nestor">
+        <option value="Niobe">
+        <option value="Numitor">
+        <option value="Nyctimene">
+        <option value="Nymphae">
+        <option value="Ocyrhoe">
+        <option value="Oedipus">
+        <option value="Oeneus">
+        <option value="Oeta">
+        <option value="Olympus">
+        <option value="Orithyia">
+        <option value="Orpheus">
+        <option value="Osiris">
+        <option value="Palaemon">
+        <option value="Palamedes">
+        <option value="Pales">
+        <option value="Palinurus">
+        <option value="Pallas">
+        <option value="Pan">
+        <option value="Pandion">
+        <option value="Peleus">
+        <option value="Pelias">
+        <option value="Pelops">
+        <option value="Penates">
+        <option value="Penelope">
+        <option value="Peneus">
+        <option value="Pentheus">
+        <option value="Pergama">
+        <option value="Periclymenus">
+        <option value="Persephone">
+        <option value="Perseus">
+        <option value="Phaedimus">
+        <option value="Phaëthon">
+        <option value="Philemon">
+        <option value="Philoctetes">
+        <option value="Philomela">
+        <option value="Phineus">
+        <option value="Phocus">
+        <option value="Phoebe">
+        <option value="Phoebus">
+        <option value="Picnus">
+        <option value="Picus">
+        <option value="Pierides">
+        <option value="Pirithous">
+        <option value="Pluto">
+        <option value="Polxena">
+        <option value="Polydorus">
+        <option value="Polymestor">
+        <option value="Pomona">
+        <option value="Priamus">
+        <option value="Procne">
+        <option value="Procris">
+        <option value="Proetides">
+        <option value="Proetus">
+        <option value="Prometheus">
+        <option value="Proserpina">
+        <option value="Proteus">
+        <option value="Pygmalion">
+        <option value="Pyramus">
+        <option value="Pyreneus">
+        <option value="Pyrrha">
+        <option value="Python">
+        <option value="Quirinus">
+        <option value="Rhadamanthus">
+        <option value="Rhea">
+        <option value="Rhesus">
+        <option value="Romulus">
+        <option value="Rutuli">
+        <option value="Salmacis">
+        <option value="Saturnus">
+        <option value="Scylla">
+        <option value="Semele">
+        <option value="Sibylla">
+        <option value="Silenus">
+        <option value="Sirenes">
+        <option value="Sisyphus">
+        <option value="Somnus">
+        <option value="Styx">
+        <option value="Syrinx">
+        <option value="Tages">
+        <option value="Talaus">
+        <option value="Tantalus">
+        <option value="Tarpeia">
+        <option value="Tatius">
+        <option value="Telamon">
+        <option value="Telemachus">
+        <option value="Telethusa">
+        <option value="Tereus">
+        <option value="Tethys">
+        <option value="Teucer">
+        <option value="Thaumas">
+        <option value="Themis">
+        <option value="Theridamas">
+        <option value="Thersites">
+        <option value="Theseus">
+        <option value="Thisbe">
+        <option value="Thoas">
+        <option value="Thracia">
+        <option value="Thyestes">
+        <option value="Tiresias">
+        <option value="Tisiphone">
+        <option value="Tithonus">
+        <option value="Tityus">
+        <option value="Tmolus">
+        <option value="Triptolemus">
+        <option value="Triton">
+        <option value="Troia">
+        <option value="Turnus">
+        <option value="Typhoeus">
+        <option value="Ulysses">
+        <option value="Urania">
+        <option value="Venus">
+        <option value="Vertumnus">
+        <option value="Vesta">
+        <option value="Vulcanus">
+        <option value="Xanthus">
+        <option value="Zancle">
+        <option value="Zephyrus">
+        <option value="Zethus">
+    </datalist>
+
+    <main id="directory">
+        </main>
+
+    <footer>
+        <p>Omnia mutantur, nihil interit.</p>
+    </footer>
+
+    <script>
+        // Dynamically injected array payload from Perl backend configurations
+        const names = [
+            "Abas",
+            "Achelous",
+            "Achilles",
+            "Acis",
+            "Acoetes",
+            "Actaeon",
+            "Adonis",
+            "Aeacus",
+            "Aeetes",
+            "Aegeus",
+            "Aeneas",
+            "Aeolus",
+            "Aesculapius",
+            "Aeson",
+            "Agamemnon",
+            "Agauë",
+            "Aglauros",
+            "Ajax",
+            "Alcithoë",
+            "Alcyone",
+            "Althaea",
+            "Ammon",
+            "Amymone",
+            "Anaxarete",
+            "Andromeda",
+            "Anius",
+            "Antigone",
+            "Apollo",
+            "Arachne",
+            "Arcas",
+            "Arethusa",
+            "Argus",
+            "Ariadne",
+            "Ascalaphus",
+            "Asopus",
+            "Astraea",
+            "Athamas",
+            "Atlas",
+            "Aurora",
+            "Autolycus",
+            "Bacchus",
+            "Battus",
+            "Baucis",
+            "Boreas",
+            "Byblis",
+            "Cadmus",
+            "Caeneus",
+            "Calais",
+            "Callisto",
+            "Calydon",
+            "Canens",
+            "Cassiope",
+            "Caunus",
+            "Cebriones",
+            "Cecrops",
+            "Cephalus",
+            "Cephissus",
+            "Ceres",
+            "Ceyx",
+            "Chione",
+            "Chiron",
+            "Cinyras",
+            "Clymene",
+            "Clytie",
+            "Cometes",
+            "Coronis",
+            "Crataeis",
+            "Creusa",
+            "Crotopus",
+            "Cupido",
+            "Cyane",
+            "Cybele",
+            "Cygnus",
+            "Cyllene",
+            "Cyparissus",
+            "Daedalion",
+            "Daedalus",
+            "Danaë",
+            "Daphne",
+            "Deianira",
+            "Deioneus",
+            "Deiphobus",
+            "Deucalion",
+            "Diana",
+            "Dictys",
+            "Diomedes",
+            "Dione",
+            "Dryope",
+            "Echo",
+            "Egeria",
+            "Elpenor",
+            "Enceladus",
+            "Epaphus",
+            "Erechtheus",
+            "Erisichthon",
+            "Eryx",
+            "Eumolpus",
+            "Europa",
+            "Eurus",
+            "Euryalus",
+            "Eurydice",
+            "Eurystheus",
+            "Eurytus",
+            "Faunus",
+            "Galanthis",
+            "Galatea",
+            "Ganymedes",
+            "Geryon",
+            "Glaucus",
+            "Gorgon",
+            "Graecus",
+            "Haemon",
+            "Haemus",
+            "Harmonia",
+            "Hecate",
+            "Hecuba",
+            "Helena",
+            "Heliades",
+            "Helicon",
+            "Hercules",
+            "Hermaphroditus",
+            "Hermes",
+            "Hersilia",
+            "Hesperia",
+            "Hippodamia",
+            "Hippolytus",
+            "Hippomenes",
+            "Hyacinthus",
+            "Hylas",
+            "Hyllus",
+            "Iachus",
+            "Ianthe",
+            "Iapetus",
+            "Iason",
+            "Icarus",
+            "Inachus",
+            "Ino",
+            "Io",
+            "Iole",
+            "Iphigenia",
+            "Iphis",
+            "Iris",
+            "Itys",
+            "Ixion",
+            "Janus",
+            "Jove",
+            "Juno",
+            "Jupiter",
+            "Ladon",
+            "Laelaps",
+            "Laertes",
+            "Latona",
+            "Lelex",
+            "Leucothoë",
+            "Liriope",
+            "Liriope",
+            "Lycabant",
+            "Lycaon",
+            "Lyciscus",
+            "Lyncus",
+            "Macareus",
+            "Machaon",
+            "Maeander",
+            "Maia",
+            "Mars",
+            "Marsyas",
+            "Medea",
+            "Medusa",
+            "Meleager",
+            "Memnon",
+            "Mercurius",
+            "Meryon",
+            "Midas",
+            "Minerva",
+            "Minos",
+            "Minotaurus",
+            "Mnemosyne",
+            "Morpheus",
+            "Mulciber",
+            "Myrrha",
+            "Naiades",
+            "Narcissus",
+            "Neleus",
+            "Nemesis",
+            "Neptunus",
+            "Nessus",
+            "Nestor",
+            "Niobe",
+            "Numitor",
+            "Nyctimene",
+            "Nymphae",
+            "Ocyrhoe",
+            "Oedipus",
+            "Oeneus",
+            "Oeta",
+            "Olympus",
+            "Orithyia",
+            "Orpheus",
+            "Osiris",
+            "Palaemon",
+            "Palamedes",
+            "Pales",
+            "Palinurus",
+            "Pallas",
+            "Pan",
+            "Pandion",
+            "Peleus",
+            "Pelias",
+            "Pelops",
+            "Penates",
+            "Penelope",
+            "Peneus",
+            "Pentheus",
+            "Pergama",
+            "Periclymenus",
+            "Persephone",
+            "Perseus",
+            "Phaedimus",
+            "Phaëthon",
+            "Philemon",
+            "Philoctetes",
+            "Philomela",
+            "Phineus",
+            "Phocus",
+            "Phoebe",
+            "Phoebus",
+            "Picnus",
+            "Picus",
+            "Pierides",
+            "Pirithous",
+            "Pluto",
+            "Polxena",
+            "Polydorus",
+            "Polymestor",
+            "Pomona",
+            "Priamus",
+            "Procne",
+            "Procris",
+            "Proetides",
+            "Proetus",
+            "Prometheus",
+            "Proserpina",
+            "Proteus",
+            "Pygmalion",
+            "Pyramus",
+            "Pyreneus",
+            "Pyrrha",
+            "Python",
+            "Quirinus",
+            "Rhadamanthus",
+            "Rhea",
+            "Rhesus",
+            "Romulus",
+            "Rutuli",
+            "Salmacis",
+            "Saturnus",
+            "Scylla",
+            "Semele",
+            "Sibylla",
+            "Silenus",
+            "Sirenes",
+            "Sisyphus",
+            "Somnus",
+            "Styx",
+            "Syrinx",
+            "Tages",
+            "Talaus",
+            "Tantalus",
+            "Tarpeia",
+            "Tatius",
+            "Telamon",
+            "Telemachus",
+            "Telethusa",
+            "Tereus",
+            "Tethys",
+            "Teucer",
+            "Thaumas",
+            "Themis",
+            "Theridamas",
+            "Thersites",
+            "Theseus",
+            "Thisbe",
+            "Thoas",
+            "Thracia",
+            "Thyestes",
+            "Tiresias",
+            "Tisiphone",
+            "Tithonus",
+            "Tityus",
+            "Tmolus",
+            "Triptolemus",
+            "Triton",
+            "Troia",
+            "Turnus",
+            "Typhoeus",
+            "Ulysses",
+            "Urania",
+            "Venus",
+            "Vertumnus",
+            "Vesta",
+            "Vulcanus",
+            "Xanthus",
+            "Zancle",
+            "Zephyrus",
+            "Zethus"
+        ];
+
+        const directory = document.getElementById('directory');
+        const searchInput = document.getElementById('name-search');
+
+        // Helper to cleanly strip diacritics for URL and alphabetizing groupings
+        function cleanName(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        // Build the structured alphabetical page layout dynamically
+        function renderDirectory(filterText = '') {
+            directory.innerHTML = '';
+            
+            // Group names by their starting letter
+            const groups = {};
+            names.forEach(name => {
+                const clean = cleanName(name);
+                if (filterText && !clean.toLowerCase().includes(filterText.toLowerCase())) return;
+                
+                const firstLetter = clean.charAt(0).toUpperCase();
+                if (!groups[firstLetter]) groups[firstLetter] = [];
+                groups[firstLetter].push(name);
+            });
+
+            // Append structured DOM nodes for matched letters
+            Object.keys(groups).sort().forEach(letter => {
+                const section = document.createElement('section');
+                section.className = 'letter-group';
+
+                const heading = document.createElement('h2');
+                heading.className = 'letter-heading';
+                heading.textContent = letter;
+                section.appendChild(heading);
+
+                const grid = document.createElement('div');
+                grid.className = 'name-grid';
+
+                groups[letter].forEach(name => {
+                    const clean = cleanName(name);
+                    const a = document.createElement('a');
+                    a.className = 'name-link';
+                    // Open the designated target structure in a blank tab
+                    a.href = `https://translate.google.com/?sl=la&tl=en&text=${encodeURIComponent(clean)}&op=translate`;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.textContent = name;
+                    grid.appendChild(a);
+                });
+
+                section.appendChild(grid);
+                directory.appendChild(section);
+            });
+        }
+
+        // Connect user inputs to real-time interactive results 
+        searchInput.addEventListener('input', (e) => {
+            renderDirectory(e.target.value);
+        });
+
+        // Initialize display
+        renderDirectory();
+    </script>
+</body>
+</html>
